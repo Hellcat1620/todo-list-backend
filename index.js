@@ -6,7 +6,7 @@ import * as TaskController from './controllers/TaskController.js';
 
 
 mongoose
-  .connect(process.env.MONGOURL)
+  .connect('mongodb+srv://admin:99999999@cluster0.px6srho.mongodb.net/todo?retryWrites=true&w=majority')
   .then(() => console.log('DB ok'))
   .catch((error) => console.log('DB error', error))
 
