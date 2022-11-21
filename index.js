@@ -6,7 +6,7 @@ import * as TaskController from './controllers/TaskController.js';
 
 
 mongoose
-  .connect('mongodb+srv://admin:99999999@cluster0.px6srho.mongodb.net/todo?retryWrites=true&w=majority')
+  .connect(process.env.MONGOURL)
   .then(() => console.log('DB ok'))
   .catch((error) => console.log('DB error', error))
 
@@ -26,7 +26,7 @@ app.delete('/task-list/:id', cors(), TaskController.deleteTask);
 
 
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     return console.log(err);
   }
